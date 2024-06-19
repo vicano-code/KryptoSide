@@ -1,0 +1,28 @@
+#cryptoSummary {
+  margin-top: 30px;
+
+} 
+#cryptoSummary > table {
+  width: 60%;
+}
+#coin_img {
+  width: 30px;
+  height: 30px;
+}
+#cryptoSummary > table > caption {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: small;
+}
+tr {
+  border-collapse: collapse;
+  border: 1px solid rgb(189, 188, 188);
+}
+#coin_symbol {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: smaller;
+  color: rgb(70, 67, 67);
+}
+#heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+}

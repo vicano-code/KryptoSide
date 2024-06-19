@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../static/styles/header.css">
+    <link rel="stylesheet" href="../static/styles/home.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../static/scripts/get_date.js"></script>
+    <title>KryptoSide</title>
+  </head>
+  <body>
+    <header>
+      <img src="../static/images/KryptoSide_Logo.png" alt="">
+      <nav>
+        <button>Home</button>
+        <button>Price Data</button>
+        <button>Coin Info</button>
+        <button>Market Info</button>
+      </nav>
+      <div id="date">Today</div>
+    </header>
+    <section id="cryptoSummary">
+      <table>
+        <caption>Crypto price and market data Summary</caption>
+        <thead>
+        <tr id="heading">
+          <th>#</th>
+          <th></th>
+          <th>Coin</th>
+          <th>Price</th>
+          <th>24h Volume</th>
+          <th>Market Cap</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for record in records %}
+        <tr>
+          <td>{{ record.marketCapRank }}</td>
+          <td><img src="{{ record.image }}" alt="coin image" id="coin_img"></td>
+          <td>{{ record.name }}<div id="coin_symbol">{{ record.symbol }}</div></td>
+          <td>{{ record.price }}</td>
+          <td>{{ record.volume24hr }}</td>
+          <td>{{ record.marketCap }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>
