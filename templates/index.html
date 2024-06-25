@@ -4,15 +4,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="../static/styles/header.css">
     <link rel="stylesheet" href="../static/styles/home.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="../static/scripts/get_date.js"></script>
+    <script>
+      let apiKey = "{{ api_key }}";
+    </script>
+    <script src="../static/scripts/get_coin_data.js"></script>
     <title>KryptoSide</title>
   </head>
   <body>
     <header>
       <img src="../static/images/KryptoSide_Logo.png" alt="">
       <nav>
-        <button>Home</button>
         <button>Price Data</button>
         <button>Coin Info</button>
         <button>Market Info</button>
@@ -21,30 +25,45 @@
     </header>
     <section id="cryptoSummary">
       <table>
-        <caption>Crypto price and market data Summary</caption>
+        <caption id="table_caption">Cryptocurrency Prices by Market Capitalization</caption>
         <thead>
-        <tr id="heading">
-          <th>#</th>
-          <th></th>
-          <th>Coin</th>
-          <th>Price</th>
-          <th>24h Volume</th>
-          <th>Market Cap</th>
-        </tr>
+          <tr id="heading">
+            <th>Rank</th>
+            <th></th>
+            <th>Coin</th>
+            <th>Price</th>
+            <th>24h %</th>
+            <th>24h Volume</th>
+            <th>Market Cap</th>
+          </tr>
         </thead>
         <tbody>
           {% for record in records %}
-        <tr>
-          <td>{{ record.marketCapRank }}</td>
-          <td><img src="{{ record.image }}" alt="coin image" id="coin_img"></td>
-          <td>{{ record.name }}<div id="coin_symbol">{{ record.symbol }}</div></td>
-          <td>{{ record.price }}</td>
-          <td>{{ record.volume24hr }}</td>
-          <td>{{ record.marketCap }}</td>
-        </tr>
-        {% endfor %}
+          <tr>
+            <td>{{ record.market_cap_rank }}</td>
+            <td><img src="{{ record.image }}" alt="coin image" id="coin_img"></td>
+            <td id="table_name_field">{{ record.name }}<span id="coin_symbol"> {{ record.symbol }}</span></td>
+            <td>{{ record.current_price }}</td>
+            <td>{{ record.price_change_percent_24h }}</td>
+            <td>{{ record.total_volume }}</td>
+            <td>{{ record.market_cap }}</td>
+          </tr>
+          {% endfor %}
         </tbody>
       </table>
+    </section>
+    <section id="coin_info">
+      <form>
+        <label for="crypto">Select Cryptocurrency: </label>
+        <select name="crypto" id="crypto" required>
+          {% for coin in crypto_coins %}
+              <option value="{{ coin }}">{{ coin }}</option>
+          {% endfor %}
+        </select>
+        <button id="submitCoinBtn">Submit</button>
+      </form>
+        <div id="coinExchangePlot"></div>
+        <p id="coinDescription"></p>
     </section>
   </body>
 </html>

@@ -1,9 +1,20 @@
-#cryptoSummary {
-  margin-top: 30px;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* crypto summary section */
+#cryptoSummary {
+  margin: 4em 4em 0 4em;
+  width: 950px;
+  height: 80vh;
+  overflow-y: auto;
+  border: 1px solid rgb(179, 170, 170);
 } 
 #cryptoSummary > table {
-  width: 60%;
+  width: 80%;
 }
 #coin_img {
   width: 30px;
@@ -11,11 +22,24 @@
 }
 #cryptoSummary > table > caption {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: small;
+  font-size: medium;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 tr {
   border-collapse: collapse;
-  border: 1px solid rgb(189, 188, 188);
+}
+th, td {
+  padding: 10px 10px 10px 40px;
+  border-bottom: 1px solid #ddd;
+}
+td {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+th {
+  background-color: #f2f2f2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: static;
 }
 #coin_symbol {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -25,4 +49,29 @@ tr {
 #heading {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
+}
+#table_name_field {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Coin-info  section */
+#coin_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+#crypto {
+  height: 30px;
+  font-size: large;
+}
+#coinDescription {
+  margin: 2em 10em 2em 10em;
+  text-align: justify;
+  line-height: 30px;
+}
+#submitCoinBtn {
+  font-size: medium;
+  background-color: black;
+  color: white;
 }
