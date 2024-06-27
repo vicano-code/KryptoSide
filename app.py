@@ -84,7 +84,7 @@ def update_market_data():
     storage.save()
     storage.close()
 
-@app.route('/kryptoside-home', strict_slashes=False)
+@app.route('/', strict_slashes=False)
 def index():
     """Fetch market data from the database"""
     update_market_data()

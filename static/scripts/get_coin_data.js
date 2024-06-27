@@ -47,8 +47,8 @@ $(document).ready(() => {
       //const trace = [trace1, trace2];
 
       // Plot the graph
-      Plotly.newPlot('priceHistoryPlot', [trace1], layout1);
-      Plotly.newPlot('marketCapHistoryPlot', [trace2], layout2);
+      Plotly.newPlot('priceHistoryChart', [trace1], layout1);
+      Plotly.newPlot('marketCapHistoryChart', [trace2], layout2);
     })
     .fail(function() {
       console.error('Error fetching coin data.');
