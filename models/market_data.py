@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from sqlalchemy import BigInteger, Column, Integer, String, Float
 from sqlalchemy.orm import declarative_base
 
@@ -16,7 +17,11 @@ class MarketData(Base):
     market_cap_rank = Column(Integer, nullable=False)
     total_volume = Column(BigInteger, nullable=False)
     price_change_24h = Column(Float, nullable=True)
+    price_change_percent_1h = Column(Float, nullable=True)
     price_change_percent_24h = Column(Float, nullable=True)
+    price_change_percent_7d = Column(Float, nullable=True)
+    price_change_percent_30d = Column(Float, nullable=True)
+    price_change_percent_1y = Column(Float, nullable=True)
     market_cap_change_24h = Column(BigInteger, nullable=True)
     market_cap_change_percent_24h = Column(Float, nullable=True)
     last_updated = Column(String(128), nullable=False)

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import models
 from models import storage
 from models.market_data import MarketData
@@ -6,11 +7,13 @@ from os import getenv
 from flask import Flask, render_template, request, redirect, url_for, session
 import requests
 
-apiKey = getenv('API_KEY')
+apiKey = getenv('COINGECKO_API_KEY')
 
 app = Flask(__name__)
 
-coins = ['bitcoin', 'ethereum', 'tether', 'ethena', 'solana', 'usdc', 'litecoin', 'dogecoin', 'toncoin', 'avalanche', 'okb']
+coins = []
+for item in get_market_data.data:
+    coins.append(item.get('name'))
 
 def format_currency_int(value):
     """Formats an integer value as currency"""
@@ -18,7 +21,16 @@ def format_currency_int(value):
 
 def format_currency_float(value):
     """Formats a float value as currency"""
-    return f"${value:,.2f}"
+    if value < 1:
+        # Format to 5 significant figures
+        return f"${value:,.4g}"
+    else:
+        # Format to 7 significant figures
+        return f"${value:,.2f}"
+
+def format_percent(value):
+    """formats the percentage value"""
+    return f"{value:.2f}"
 
 @app.teardown_appcontext
 def close_db(error):
@@ -41,7 +53,11 @@ def update_market_data():
             market_data.market_cap_rank = item.get('market_cap_rank')
             market_data.total_volume = item.get('total_volume')
             market_data.price_change_24h = item.get('price_change_24h')
+            market_data.price_change_percent_1h = item.get('price_change_percentage_1h_in_currency')
             market_data.price_change_percent_24h = item.get('price_change_percentage_24h')
+            market_data.price_change_percent_7d = item.get('price_change_percentage_7d_in_currency')
+            market_data.price_change_percent_30d = item.get('price_change_percentage_30d_in_currency')
+            market_data.price_change_percent_1y = item.get('price_change_percentage_1y_in_currency')
             market_data.market_cap_change_24h = item.get('market_cap_change_24h')
             market_data.market_cap_change_percent_24h = item.get('market_cap_change_percentage_24h')
             market_data.last_updated = item.get('last_updated')
@@ -55,7 +71,11 @@ def update_market_data():
                 market_cap_rank = item.get('market_cap_rank'),
                 total_volume = item.get('total_volume'),
                 price_change_24h = item.get('price_change_24h'),
+                price_change_percent_1h = item.get('price_change_percentage_1h_in_currency'),
                 price_change_percent_24h = item.get('price_change_percentage_24h'),
+                price_change_percent_7d = item.get('price_change_percentage_7d_in_currency'),
+                price_change_percent_30d = item.get('price_change_percentage_30d_in_currency'),
+                price_change_percent_1y = item.get('price_change_percentage_1y_in_currency'),
                 market_cap_change_24h = item.get('market_cap_change_24h'),
                 market_cap_change_percent_24h = item.get('market_cap_change_percentage_24h'),
                 last_updated = item.get('last_updated'),
@@ -64,7 +84,7 @@ def update_market_data():
     storage.save()
     storage.close()
 
-@app.route('/', strict_slashes=False)
+@app.route('/kryptoside-home', strict_slashes=False)
 def index():
     """Fetch market data from the database"""
     update_market_data()
@@ -81,24 +101,13 @@ def index():
             'market_cap': format_currency_int(item.market_cap) if item.market_cap is not None else 'N/A',
             'market_cap_rank': item.market_cap_rank,
             'total_volume': format_currency_int(item.total_volume) if item.total_volume is not None else 'N/A',
-            'price_change_percent_24h': item.price_change_percent_24h
+            'price_change_percent_1h': format_percent(item.price_change_percent_1h) if item.price_change_percent_1h is not None else 'N/A',
+            'price_change_percent_24h': format_percent(item.price_change_percent_24h) if item.price_change_percent_24h is not None else 'N/A', 
+            'price_change_percent_7d': format_percent(item.price_change_percent_7d) if item.price_change_percent_7d is not None else 'N/A',
+            'price_change_percent_30d': format_percent(item.price_change_percent_30d) if item.price_change_percent_30d is not None else 'N/A',
+            'price_change_percent_1y': format_percent(item.price_change_percent_1y) if item.price_change_percent_1y is not None else 'N/A',
         });
     return render_template('index.html', records=formatted_data, crypto_coins=coins, api_key=apiKey)
-
-"""
-@app.route('/submit-form', methods=['POST'])
-def submit_form():
-    coin_id = request.form.get('crypto')
-    # get coin data from API and serve in html
-    url = f"https://api.coingecko.com/api/v3/coins/{coin_id}?x_cg_demo_api_key={apiKey}"
-    headers = {"accept": "application/json"}
-    response = requests.get(url, headers=headers)
-    coin_data = {}
-    if response.status_code == 200:
-        coin_data = response.json()
-    #return render_template('index.html', records=session.get('formatted_data', []), crypto_coins=coins, coin_data=coin_data)
-    return redirect("/", coin_data=coin_data, code=302)
-"""   
 
 
 if __name__ == "__main__":

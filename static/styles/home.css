@@ -8,10 +8,9 @@ body {
 /* crypto summary section */
 #cryptoSummary {
   margin: 4em 4em 0 4em;
-  width: 950px;
+  width: 80vw;
   height: 80vh;
   overflow-y: auto;
-  border: 1px solid rgb(179, 170, 170);
 } 
 #cryptoSummary > table {
   width: 80%;
@@ -61,17 +60,29 @@ th {
   align-items: center;
   margin-top: 60px;
 }
+label {
+  font-size: large;
+}
 #crypto {
   height: 30px;
   font-size: large;
+}
+#submitCoinBtn {
+  height: 30px;
+  width: 80px;
+  margin-left: 10px;
+  font-size: medium;
+  border-radius: 0.2;
 }
 #coinDescription {
   margin: 2em 10em 2em 10em;
   text-align: justify;
   line-height: 30px;
 }
-#submitCoinBtn {
-  font-size: medium;
-  background-color: black;
-  color: white;
+
+#coinExchangePlot {
+  border: 2px solid rgb(180, 165, 165);
+  padding: 5x;
+  box-shadow: 6px 4px 8px -4x;
+  margin-top: 30px;
 }
