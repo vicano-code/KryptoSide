@@ -17,6 +17,7 @@ $(document).ready(() => {
       let xDate = data['prices'].map(val => val[0]);
       let yPrices = data['prices'].map(val => val[1]);
       let yMarketCap = data['market_caps'].map(val => val[1]);
+      let yMarketVol = data['total_volumes'].map(val => val[1]);
 
       // Prepare the plotly data
       let trace1 = {
@@ -33,6 +34,12 @@ $(document).ready(() => {
         mode: 'lines',
         marker: { color: 'blue' }
       };
+      let trace3 = {
+        x: xDate,
+        y: yMarketVol,
+        type: 'scatter',
+        mode: 'lines',
+      };
 
       let layout1 = {
         title: coinId + ' Price History',
@@ -44,11 +51,17 @@ $(document).ready(() => {
         xaxis: { title: 'Date' },
         yaxis: { title: 'Market Cap (USD)' },
       };
-      //const trace = [trace1, trace2];
+      let layout3 = {
+        title: coinId + ' Total Volume',
+        xaxis: { title: 'Date' },
+        yaxis: { title: '24hr Total Volume (USD)' },
+      };
+      //const trace = [trace1, trace2, trace3];
 
       // Plot the graph
       Plotly.newPlot('priceHistoryChart', [trace1], layout1);
       Plotly.newPlot('marketCapHistoryChart', [trace2], layout2);
+      Plotly.newPlot('marketVolHistoryChart', [trace3], layout3);
     })
     .fail(function() {
       console.error('Error fetching coin data.');

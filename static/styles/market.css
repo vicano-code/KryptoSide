@@ -1,0 +1,49 @@
+/* crypto summary section */
+#cryptoSummary {
+  margin: 80px 300px 40px 300px;
+  height: 80vh;
+  overflow-y: auto;
+  align-items: center;
+  
+} 
+#cryptoSummary > table {
+  width: 100%;
+}
+#coin_img {
+  width: 20px;
+  height: 20px;
+}
+#cryptoSummary > table > caption {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: medium;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+tr {
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+td {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+th {
+  background-color: #f2f2f2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: static;
+}
+#coin_symbol {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: smaller;
+  color: rgb(70, 67, 67);
+}
+#heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+}
+#table_name_field {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+

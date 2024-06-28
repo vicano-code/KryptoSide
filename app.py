@@ -84,8 +84,13 @@ def update_market_data():
     storage.save()
     storage.close()
 
-@app.route('/', strict_slashes=False)
+@app.route('/kryptoside', strict_slashes=False)
 def index():
+    """Returns the index html document"""
+    return render_template('index.html')
+
+@app.route('/kryptoside/market', strict_slashes=False)
+def market():
     """Fetch market data from the database"""
     update_market_data()
     market_data = storage.all(MarketData)
@@ -107,9 +112,25 @@ def index():
             'price_change_percent_30d': format_percent(item.price_change_percent_30d) if item.price_change_percent_30d is not None else 'N/A',
             'price_change_percent_1y': format_percent(item.price_change_percent_1y) if item.price_change_percent_1y is not None else 'N/A',
         });
-    return render_template('index.html', records=formatted_data, crypto_coins=coins, api_key=apiKey)
+    return render_template('market.html', records=formatted_data)
 
+@app.route('/kryptoside/coin', strict_slashes=False)
+def coin():
+    """Fetch market data from the database"""
+    return render_template('coin.html', crypto_coins=coins, api_key=apiKey)
 
+@app.route('/redirect_to_index', strict_slashes=False)
+def redirect_to_index():
+    return redirect(url_for('index'))
+
+@app.route('/redirect_to_market', strict_slashes=False)
+def redirect_to_market():
+    return redirect(url_for('market'))
+
+@app.route('/redirect_to_coin', strict_slashes=False)
+def redirect_to_coin():
+    return redirect(url_for('coin'))
+    
 if __name__ == "__main__":
     """ Main Function """
     app.run(host='0.0.0.0', port=5001)
