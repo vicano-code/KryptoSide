@@ -2,9 +2,9 @@
 #coin_info {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 40px auto;
+  grid-template-rows: 40px auto auto;
   z-index: 0;
-  margin: 120px 300px 30px 300px;
+  margin-top: 120px;
   row-gap: 20px;
 }
 #coin_info > form {
@@ -26,12 +26,36 @@ label {
   border-radius: 0.2;
 }
 
-#desc {
+#coin_stats {
   grid-column: 1;
   grid-row: 2;
-  border-right: 1px solid rgb(194, 190, 190);
   padding-right: 30px;
 }
+#coin_stats > table > tr {
+  border-collapse: collapse;
+}
+td {
+  border-bottom: 1px solid #636e72;
+  padding: 10px;
+  height:50px
+}
+#coin_id {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#coin_name {
+  font-size: x-large;
+}
+#coin_abbrev {
+  font-size: large;
+  color: rgb(70, 67, 67);
+}
+#coin_price {
+  margin-top: 10px;
+  font-size: xx-large;
+}
+
 #coinChart {
   grid-column: 2 / 4;
   grid-row: 2;
@@ -40,6 +64,11 @@ label {
   gap: 10px;
   font-size: medium;
   padding-left: 30px;
+  
+}
+#coin_desc {
+  grid-column: 1 / 3;
+  grid-row: 3;
 }
 
 #coinDescription {
@@ -49,7 +78,7 @@ label {
 }
 
 .historyChart {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 100%;
   height: 40vh;
+  box-shadow: #636e72 0px 1px 3px 0px, #636e72 0px 0px 0px 1px;
 }

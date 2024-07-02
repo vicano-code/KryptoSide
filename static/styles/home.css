@@ -1,0 +1,109 @@
+/* intro section*/
+#intro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  border-bottom: 1px solid #636e72;
+  margin-bottom: 200px;
+}
+#intro > img {
+  width: 500px;
+  height: 700px;
+}
+#welcome {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #dfe6e9;
+}
+h1 {
+  font-family: cursive;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+h4 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  margin-top: 10px;
+}
+/* feature section */
+#feature {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 200px;
+  border-bottom: 1px solid #636e72;
+  margin-bottom: 200px;
+  padding-bottom: 200px;
+}
+#market_info {
+  grid-row: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;
+  justify-content: space-between;
+  color: #dfe6e9;
+}
+#market_info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+}
+.feature_buttons {
+  width: 200px;
+  height: 50px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: large;
+  border: 1px solid #dfe6e9;
+  border-radius:5%;
+  background-color: #b2bec3;
+}
+.feature_buttons:hover {
+  cursor: pointer;
+  border: 4px solid goldenrod;
+}
+#coin_info {
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;
+  justify-content: space-between;
+  color: #dfe6e9;
+}
+#coin_info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+}
+#general_info {
+  grid-row: 3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;
+  justify-content: space-between;
+  color: #dfe6e9;
+}
+#general_info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+}
+img {
+  width: 800px;
+  height: 350px;
+}

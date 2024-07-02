@@ -1,10 +1,9 @@
 /* crypto summary section */
 #cryptoSummary {
-  margin: 80px 300px 40px 300px;
   height: 80vh;
   overflow-y: auto;
   align-items: center;
-  
+  margin-top: 120px;
 } 
 #cryptoSummary > table {
   width: 100%;
@@ -22,6 +21,10 @@
 tr {
   border-collapse: collapse;
 }
+th {
+  color: black;
+  font-weight: normal;
+}
 th, td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
@@ -37,7 +40,8 @@ th {
 #coin_symbol {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: smaller;
-  color: rgb(70, 67, 67);
+  font-weight: 100;
+  color: #dfe6e9;
 }
 #heading {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

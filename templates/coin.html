@@ -39,15 +39,58 @@
         </select>
         <button id="submitCoinBtn">Submit</button>
       </form>
-      <div id="desc">
-        <h4>About</h4>
-        <p id="coinDescription"></p>
+      <div id='coin_stats'>
+        <div id="coin_id">
+          <img src="" alt="" id="coin_logo"><h3></h3><span></span>
+          <span id="coin_name"></span>
+          <span id="coin_abbrev"></span>
+          <span id="coin_rank"></span>
+        </div>
+        <span id="coin_price"></span>
+        
+        <table>
+            <tr>
+              <td>Market Cap</td>
+              <td id="market_cap_val"></td>
+            </tr>
+            <tr>
+              <td>24 Hour trading Volume</td>
+              <td id="trading_vol"></td>
+            </tr>
+            <tr>
+              <td>Circulating Supply</td>
+              <td id="circ_supply"></td>
+            </tr>
+            <tr>
+              <td>Total Supply</td>
+              <td id="tot_supply"></td>
+            </tr>
+            <tr>
+              <td>Max Supply</td>
+              <td id="max_supply"></td>
+            </tr>
+            <tr>
+              <td>Website</td>
+              <td id="website"></td>
+            </tr>
+            <tr>
+              <td>Community</td>
+              <td id="community"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="coin_desc">
+          <h4>About</h4>
+          <p id="coinDescription"></p>
+        </div>
       </div>
       <div id="coinChart">
+        <div class="historyChart" id="candlestickChart"></div>
         <div class="historyChart" id="priceHistoryChart"></div>
         <div class="historyChart" id="marketCapHistoryChart"></div>
         <div class="historyChart" id="marketVolHistoryChart"></div>
       </div>
+      
     </section>
     <footer>
       <span>A place for dynamic crypto data</span>

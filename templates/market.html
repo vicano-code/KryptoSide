@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/styles/market.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../static/scripts/highlight_percent_val.js"></script>
     <script>
       let apiKey = "{{ api_key }}";
     </script>
@@ -51,11 +52,11 @@
             <td>{{ record.market_cap_rank }}</td>
             <td id="table_name_field"><img src="{{ record.image }}" alt="coin image" id="coin_img"> {{ record.name }}<span id="coin_symbol"> {{ record.symbol }}</span></td>
             <td>{{ record.current_price }}</td>
-            <td>{{ record.price_change_percent_1h }}</td>
-            <td>{{ record.price_change_percent_24h }}</td>
-            <td>{{ record.price_change_percent_7d }}</td>
-            <td>{{ record.price_change_percent_30d }}</td>
-            <td>{{ record.price_change_percent_1y }}</td>
+            <td class="highlight">{{ record.price_change_percent_1h }}</td>
+            <td class="highlight">{{ record.price_change_percent_24h }}</td>
+            <td class="highlight">{{ record.price_change_percent_7d }}</td>
+            <td class="highlight">{{ record.price_change_percent_30d }}</td>
+            <td class="highlight">{{ record.price_change_percent_1y }}</td>
             <td>{{ record.total_volume }}</td>
             <td>{{ record.market_cap }}</td>
           </tr>
