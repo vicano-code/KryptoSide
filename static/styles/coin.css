@@ -1,7 +1,8 @@
 /* Coin-info  section */
 #coin_info {
+  padding: 0 15vw 0 15vw;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 40px auto auto;
   z-index: 0;
   margin-top: 120px;
@@ -42,7 +43,9 @@ td {
 #coin_id {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
+  gap: 10px;
 }
 #coin_name {
   font-size: x-large;
@@ -54,6 +57,8 @@ td {
 #coin_price {
   margin-top: 10px;
   font-size: xx-large;
+  font-weight: bolder;
+  margin-left: 20px;
 }
 
 #coinChart {
@@ -61,19 +66,19 @@ td {
   grid-row: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
   font-size: medium;
-  padding-left: 30px;
-  
 }
 #coin_desc {
   grid-column: 1 / 3;
   grid-row: 3;
+  margin-right: 20px;
 }
 
 #coinDescription {
   text-align: justify;
-  line-height: 20px;
+  line-height: 30px;
   z-index: 0;
 }
 

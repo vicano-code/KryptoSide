@@ -1,6 +1,6 @@
-$(document).ready(() => {
+//$(document).ready(() => {
   //setInterval()
-  $('#submitCoinBtn').click(function() {
+  function plotCharts() {
     event.preventDefault();
     let coinId = $('#crypto').val();
     
@@ -41,38 +41,18 @@ $(document).ready(() => {
       let yLow = data2.map(val => val[3]);
       let yClose = data2.map(val => val[4]);
 
-      let trace = {
-        x: xDate,
+      let fig = PlotlyFinance.createCandlestick({
         open: yOpen,
         high: yHigh,
         low: yLow,
-        close: yClose
-      }
-      // Configuration for the candlestick chart
-      let layout = {
-        title: 'Candlestick Chart',
-        xaxis: {
-        type: 'category',
-        categoryorder: 'category ascending'
-        },
-        yaxis: {
-          title: 'Price'
-        },
-        plot_bgcolor: '#2d3436',
-        paper_bgcolor: '#2d3436'
-      };
+        close: yClose,
+        dates: xDate
+      }); 
+      fig.layout.plot_bgcolor = '#ADA996';
+      fig.layout.paper_bgcolor = '#243B55';
+
       // Plot the candlestick chart
-      Plotly.newPlot('candlestickChart', [{
-        x: trace.x,
-        close: trace.close,
-        decreasing: {line: {color: '#FF6347'}},
-        high: trace.high,
-        increasing: {line: {color: '#7CFC00'}},
-        line: {color: 'rgba(31,119,180,1)'},
-        low: trace.low,
-        open: trace.open,
-        type: 'candlestick'
-      }], layout);
+      Plotly.newPlot('candlestickChart', fig.data, fig.layout);
     })
     // Get coin historical data
     const url_history = 'https://api.coingecko.com/api/v3/coins/' + coinId.toLowerCase() + '/market_chart?vs_currency=usd&days=365&x_cg_demo_api_key=' + apiKey;
@@ -88,46 +68,106 @@ $(document).ready(() => {
         y: yPrices,
         type: 'scatter',
         mode: 'lines',
-        marker: { color: '#d63031' }
+        line: {
+          color: '#d63031',
+          width: 2
+        },
       };
       let trace2 = {
         x: xDate,
         y: yMarketCap,
         type: 'scatter',
         mode: 'lines',
-        marker: { color: '#74b9ff' }
+        line: {
+          color: 'blue',
+          width: 2
+        },
       };
       let trace3 = {
         x: xDate,
         y: yMarketVol,
         type: 'scatter',
         mode: 'lines',
-        marker: { color: '#00b894' }
+        line: {
+          color: 'green',
+          width: 2
+        },
       };
 
       let layout1 = {
-        title: coinId + ' Price History',
-        xaxis: { title: 'Date' },
-        yaxis: { title: 'Price (USD)' },
-        plot_bgcolor: '#2d3436',
-        paper_bgcolor: '#2d3436',
-        
+        title: {
+          text: coinId + ' Price History',
+          font: {
+            color: 'white',
+          }
+        },
+        xaxis: { 
+          title: {
+            text: 'Date',
+            font: { color: 'white' }
+          },
+          tickfont: { color: 'white'}
+        },
+        yaxis: { 
+          title: {
+            text: 'Price (USD)',
+            font: { color: 'white' }
+          },
+          tickfont: { color: 'white'}
+        },
+        plot_bgcolor: '#ADA996',
+        paper_bgcolor: '#243B55',
       };
+
       let layout2 = {
-        title: coinId + ' Market Cap History',
-        xaxis: { title: 'Date' },
-        yaxis: { title: 'Market Cap (USD)' },
-        plot_bgcolor: '#2d3436',
-        paper_bgcolor: '#2d3436'
+        title: {
+          text: coinId + ' Market Cap History',
+          font: {
+            color: 'white',
+          }
+        },
+        xaxis: { 
+          title: {
+            text: 'Date',
+            font: { color: 'white' }
+          },
+          tickfont: { color: 'white'}
+        },
+        yaxis: { 
+          title: {
+            text: 'Market Cap (USD)',
+            font: { color: 'white' }
+          },
+          tickfont: { color: 'white'}
+        },
+        plot_bgcolor: '#ADA996',
+        paper_bgcolor: '#243B55',
       };
+
       let layout3 = {
-        title: coinId + ' Total Volume',
-        xaxis: { title: 'Date' },
-        yaxis: { title: '24hr Total Volume (USD)' },
-        plot_bgcolor: '#2d3436',
-        paper_bgcolor: '#2d3436'
+        title: {
+          text: coinId + ' Total Volume',
+          font: {
+            color: 'white',
+          }
+        },
+        xaxis: { 
+          title: {
+            text: 'Date',
+            font: { color: 'white' }
+          },
+          tickfont: { color: 'white'}
+        },
+        yaxis: { 
+          title: {
+            text: '24hr Total Volume (USD)',
+            font: { color: 'white' }
+          },
+          tickfont: { color: 'white'}
+        },
+        plot_bgcolor: '#ADA996',
+        paper_bgcolor: '#243B55',
       };
-      //const trace = [trace1, trace2, trace3];
 
       // Plot the graph
       Plotly.newPlot('priceHistoryChart', [trace1], layout1);
@@ -137,5 +177,7 @@ $(document).ready(() => {
     .fail(function() {
       console.error('Error fetching coin data.');
     })
-  });
-});
+  };
+//});
+$(document).ready(plotCharts);
+$('#submitCoinBtn').click(plotCharts);

@@ -35,23 +35,30 @@
         <h4>View Stats of Your Favorite Crypto Currencies</h4>
       </div>
     </section>
-    <section id="feature">
-      <div id="market_info">
+    <section id="features">
+      <div class="feature" id="market_info">
         <div>
+          <h2>Access Real-Time Market Data</h2>
           <span class="feature_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque elit, sagittis sit amet tellus sed, lobortis interdum ligula. Aenean quis viverra leo, in dapibus nibh. Proin sodales mauris at maximus facilisis. Etiam ut viverra ex. Vivamus efficitur ipsum nisi, sed bibendum ligula pulvinar nec. Nulla molestie nisl nec urna ultrices condimentum eget non metus. Ut nec ligula ultricies, gravida eros eu, suscipit odio.</span>
-          <button class="feature_buttons">See Market Stats</button>
+          <form action="{{ url_for('redirect_to_market') }}" method="get">
+            <button class="feature_buttons">See Market Stats</button>
+          </form>
         </div>
         <img src="../static/images/bitcoin-cartoon-pic.jpg" alt="">
       </div>
-      <div id="coin_info">
+      <div class="feature" id="coin_info">
         <img src="../static/images/bitcoin-cartoon-pic.jpg" alt="">
         <div>
+          <h2>Historical Crypto Data</h2>
           <span class="feature_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque elit, sagittis sit amet tellus sed, lobortis interdum ligula. Aenean quis viverra leo, in dapibus nibh. Proin sodales mauris at maximus facilisis. Etiam ut viverra ex. Vivamus efficitur ipsum nisi, sed bibendum ligula pulvinar nec. Nulla molestie nisl nec urna ultrices condimentum eget non metus. Ut nec ligula ultricies, gravida eros eu, suscipit odio.</span>
-          <button class="feature_buttons">See Coin Stats</button>
+          <form action="{{ url_for('redirect_to_coin') }}" method="get">
+            <button class="feature_buttons">See Coin Stats</button>
+          </form>
         </div>
       </div>
-      <div id="general_info">
+      <div class="feature" id="general_info">
         <div>
+          <h2>General Crypto Information</h2>
           <span class="feature_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque elit, sagittis sit amet tellus sed, lobortis interdum ligula. Aenean quis viverra leo, in dapibus nibh. Proin sodales mauris at maximus facilisis. Etiam ut viverra ex. Vivamus efficitur ipsum nisi, sed bibendum ligula pulvinar nec. Nulla molestie nisl nec urna ultrices condimentum eget non metus. Ut nec ligula ultricies, gravida eros eu, suscipit odio.</span>
           <button class="feature_buttons">See General Info</button>
         </div>
@@ -59,7 +66,22 @@
       </div>
     </section>
     <section id="about">
-      
+      <h2>About KryptoSide</h2>
+      <p>Welcome to KryptoSide, your one-stop destination for comprehensive cryptocurrency data and statistics. In an ever-evolving digital economy, staying updated with the latest trends, prices, and insights into the cryptocurrency market is essential. KryptoSide provides a user-friendly platform where you can access real-time data, detailed analytics, and historical trends for a wide range of cryptocurrencies.</p>
+      <h3>Features</h3>
+      <ul>
+        <ol><strong>Real-Time Data: </strong>Get the latest prices, market cap, volume, and other vital statistics for top cryptocurrencies.</ol>
+        <ol><strong>Detailed Analytics: </strong>Explore in-depth charts, trends, and technical indicators to make informed decisions.</ol>
+        <ol><strong>Historical Data: </strong>Access extensive historical data to analyze market movements over time.</ol>
+        <ol><strong>User-Friendly Interface: </strong>Navigate through our intuitive interface designed for both beginners and experts.</ol>
+      </ul>
     </section>
+    
+    <footer>
+      <span>A place for dynamic crypto data</span>
+      <span>2024</span>
+      <span>Developed by Victor Anokwuru</span>
+      <span>contact me @ vc.anokwuru@gmail.com</span>
+    </footer>
   </body>
 </html>

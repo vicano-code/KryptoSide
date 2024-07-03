@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="../static/styles/coin.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.rawgit.com/etpinard/plotlyjs-finance/master/plotlyjs-finance.js"></script>
     <script>
       let apiKey = "{{ api_key }}";
     </script>
-    <script src="../static/scripts/get_coin_data.js"></script>
     <title>KryptoSide</title>
+    <script src="../static/scripts/get_coin_data.js" defer></script>
   </head>
   <body>
     <header>
@@ -41,7 +42,7 @@
       </form>
       <div id='coin_stats'>
         <div id="coin_id">
-          <img src="" alt="" id="coin_logo"><h3></h3><span></span>
+          <img src="" alt="" id="coin_logo">
           <span id="coin_name"></span>
           <span id="coin_abbrev"></span>
           <span id="coin_rank"></span>
@@ -98,4 +99,7 @@
       <span>Developed by Victor Anokwuru</span>
       <span>contact me @ vc.anokwuru@gmail.com</span>
     </footer>
+    <script>
+      window.addEventListener("load", )
+    </script>
   </body>

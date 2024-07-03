@@ -1,5 +1,6 @@
 /* crypto summary section */
 #cryptoSummary {
+  padding: 0 15vw 0 15vw;
   height: 80vh;
   overflow-y: auto;
   align-items: center;
@@ -27,7 +28,7 @@ th {
 }
 th, td {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #40739e;
 }
 td {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
