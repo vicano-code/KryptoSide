@@ -23,8 +23,8 @@
       $('#circ_supply').text(data1.market_data.circulating_supply.toLocaleString('en-US'));
       $('#tot_supply').text(data1.market_data.total_supply.toLocaleString('en-US'));
       $('#max_supply').text(data1.market_data.max_supply.toLocaleString('en-US'));
-      $('#website').html(data1.links.homepage[0]);
-      $('#coinDescription').html(data1.description['en']);
+      $('#website').text(data1.links.homepage[0]);
+      $('#coinDescription').html(data1.description["en"]);
     });
     
     // Get and plot OHLC data

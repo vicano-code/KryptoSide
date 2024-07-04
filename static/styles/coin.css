@@ -30,15 +30,23 @@ label {
 #coin_stats {
   grid-column: 1;
   grid-row: 2;
-  padding-right: 30px;
+  padding: 30px;
+  background-color: white;
+  color: black;
 }
 #coin_stats > table > tr {
   border-collapse: collapse;
 }
+table {
+  margin: 10px 0 20px 0;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
 td {
+  font-size: normal;
+  font-weight: normal;
   border-bottom: 1px solid #636e72;
-  padding: 10px;
-  height:50px
+  padding: 5px;
+  height:40px
 }
 #coin_id {
   display: flex;
@@ -52,7 +60,7 @@ td {
 }
 #coin_abbrev {
   font-size: large;
-  color: rgb(70, 67, 67);
+  color: black;
 }
 #coin_price {
   margin-top: 10px;
@@ -60,7 +68,6 @@ td {
   font-weight: bolder;
   margin-left: 20px;
 }
-
 #coinChart {
   grid-column: 2 / 4;
   grid-row: 2;
@@ -73,10 +80,12 @@ td {
 #coin_desc {
   grid-column: 1 / 3;
   grid-row: 3;
+  margin-top: 40px;
   margin-right: 20px;
 }
 
 #coinDescription {
+  font-size: medium;
   text-align: justify;
   line-height: 30px;
   z-index: 0;
