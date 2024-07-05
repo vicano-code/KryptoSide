@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/styles/home.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../static/scripts/reorganize_layout_home.js"></script>
     <script>
       let apiKey = "{{ api_key }}";
     </script>
@@ -39,7 +40,7 @@
       <div class="feature" id="market_info">
         <div>
           <h2>Access Real-Time Market Data</h2>
-          <span class="feature_description">Stay ahead of the curve with up-to-the-minute updates on your favorite digital assets. Whether you're a seasoned trader or a curious enthusiast, KryptoSide provides you with the insights you need to make informed decisions. Dive into the dynamic world of crypto markets with live price tracking, market trends, and comprehensive analysis, all at your fingertips. Start exploring now and take control of your crypto investments!</span>
+          <p class="feature_description">Stay ahead of the curve with up-to-the-minute updates on your favorite digital assets. Whether you're a seasoned trader or a curious enthusiast, KryptoSide provides you with the insights you need to make informed decisions. Dive into the dynamic world of crypto markets with live price tracking, market trends, and comprehensive analysis, all at your fingertips. Start exploring now and take control of your crypto investments!</p>
           <form action="{{ url_for('redirect_to_market') }}" method="get">
             <button class="feature_buttons">See Market Stats</button>
           </form>
@@ -50,7 +51,7 @@
         <img src="../static/images/crypto-coin-list-img.jpg" alt="">
         <div>
           <h2>Historical Crypto Data</h2>
-          <span class="feature_description">Gain valuable insights by delving into comprehensive historical data of your favorite digital assets. Whether you're conducting research or analyzing trends, KryptoSide provides detailed records and in-depth analysis to help you understand market movements over time. Start your journey through the past and make more informed decisions for the future of your crypto investments!</span>
+          <p class="feature_description">Gain valuable insights by delving into comprehensive historical data of your favorite digital assets. Whether you're conducting research or analyzing trends, KryptoSide provides detailed records and in-depth analysis to help you understand market movements over time. Start your journey through the past and make more informed decisions for the future of your crypto investments!</p>
           <form action="{{ url_for('redirect_to_coin') }}" method="get">
             <button class="feature_buttons">See Coin Stats</button>
           </form>
@@ -59,7 +60,7 @@
       <div class="feature" id="general_info">
         <div>
           <h2>General Crypto Information</h2>
-          <span class="feature_description"> Stay informed with up-to-date articles, in-depth analyses, and expert opinions on the ever-evolving crypto landscape. Discover valuable information, links to essential tools, and a wealth of knowledge to guide your crypto journey. Whether you're a newcomer or a seasoned trader, KryptoSide is your gateway to staying ahead in the world of digital assets. Explore now and stay connected with the crypto community!</span>
+          <p class="feature_description"> Stay informed with up-to-date articles, in-depth analyses, and expert opinions on the ever-evolving crypto landscape. Discover valuable information, links to essential tools, and a wealth of knowledge to guide your crypto journey. Whether you're a newcomer or a seasoned trader, KryptoSide is your gateway to staying ahead in the world of digital assets. Explore now and stay connected with the crypto community!</p>
           <button class="feature_buttons">See General Info</button>
         </div>
         <img src="../static/images/Crypto-News-img.jpg" alt="">
