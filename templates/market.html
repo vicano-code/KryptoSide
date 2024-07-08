@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../static/styles/market.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../static/scripts/global_mkt_data.js"></script>
+    <script src="../static/scripts/get_trending-coins.js"></script>
     <script src="../static/scripts/highlight_percent_val.js"></script>
     <script>
       let apiKey = "{{ api_key }}";
@@ -29,7 +31,22 @@
       </nav>
       <button id="conact">Contact</button>
     </header>
-    <section id="cryptoSummary">
+    <section id="marketSummary">
+      <div class="market_summary" id="totalMarketCap">
+        <p>Global Market Cap </p>
+        <h3></h3>
+      </div>
+      <div class="market_summary" id="totalMarketVolume">
+        <p>Global 24h Trading Volume </p>
+        <h3></h3>
+      </div>
+      <div class="market_summary" id="trending">
+        <p>Trending Coins </p>
+        <div id="trending_coin">
+        </div>
+      </div>
+    </section>
+    <section id="cryptoTable">
       <table>
         <caption id="table_caption">Cryptocurrency Prices by Market Capitalization</caption>
         <thead>
