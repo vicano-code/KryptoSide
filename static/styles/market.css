@@ -31,18 +31,14 @@
 }
 #trending {
   width: auto;
-  height: auto;
+  height: 30vh;
+  overflow-y: auto;
 }
-#trending_coin {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-}
+
 /* crypto Table section */
 #cryptoTable {
   padding: 0 15vw 0 15vw;
-  height: 80vh;
-  overflow-y: auto;
+  height: auto;
   align-items: center;
 } 
 #cryptoTable > table {
