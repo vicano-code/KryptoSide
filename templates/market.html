@@ -9,7 +9,7 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="../static/scripts/global_mkt_data.js"></script>
     <script src="../static/scripts/get_trending-coins.js"></script>
-    <script src="../static/scripts/highlight_percent_val.js"></script>
+    <script src="../static/scripts/fetch_market_data.js"></script>
     <script>
       let apiKey = "{{ api_key }}";
     </script>
@@ -65,20 +65,7 @@
           </tr>
         </thead>
         <tbody>
-          {% for record in records %}
-          <tr>
-            <td>{{ record.market_cap_rank }}</td>
-            <td id="table_name_field"><img src="{{ record.image }}" alt="coin image" id="coin_img"> {{ record.name }}<span id="coin_symbol"> {{ record.symbol }}</span></td>
-            <td>{{ record.current_price }}</td>
-            <td class="highlight">{{ record.price_change_percent_1h }}</td>
-            <td class="highlight">{{ record.price_change_percent_24h }}</td>
-            <td class="highlight">{{ record.price_change_percent_7d }}</td>
-            <td class="highlight">{{ record.price_change_percent_30d }}</td>
-            <td class="highlight">{{ record.price_change_percent_1y }}</td>
-            <td>{{ record.total_volume }}</td>
-            <td>{{ record.market_cap }}</td>
-          </tr>
-          {% endfor %}
+          
         </tbody>
       </table>
     </section>

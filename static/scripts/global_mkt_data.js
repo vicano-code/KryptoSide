@@ -1,4 +1,5 @@
-// Fetch global crypto data from coingecko API and display in html template
+// Fetch global crypto data for Market Cap and Trading_Volume from coingecko API
+// and display in html template
 $(document).ready(function() {
   function getandDisplayGlobalMarketData() {
     const url = 'https://api.coingecko.com/api/v3/global/' + '?x_cg_demo_api_key=' + apiKey;

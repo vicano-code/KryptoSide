@@ -35,7 +35,7 @@
         <label for="crypto">Select Cryptocurrency: </label>
         <select name="crypto" id="crypto" required>
           {% for coin in crypto_coins %}
-              <option value="{{ coin }}">{{ coin }}</option>
+              <option value="{{ coin }}" {% if coin == 'Bitcoin' %}selected{% endif %}>{{ coin }}</option>
           {% endfor %}
         </select>
         <button id="submitCoinBtn">Submit</button>
@@ -99,7 +99,4 @@
       <span>Developed by Victor Anokwuru</span>
       <span>contact me @ vc.anokwuru@gmail.com</span>
     </footer>
-    <script>
-      window.addEventListener("load", )
-    </script>
   </body>

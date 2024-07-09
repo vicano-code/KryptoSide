@@ -1,8 +1,10 @@
-//$(document).ready(() => {
-  //setInterval()
+$(document).ready(() => {
   function plotCharts() {
     event.preventDefault();
     let coinId = $('#crypto').val();
+    if (coinId == '') { 
+      coinId = 'Bitcoin';
+    }
     
     // Get coin description
     const url_coin_desc = 'https://api.coingecko.com/api/v3/coins/' + coinId.toLowerCase() + '?x_cg_demo_api_key=' + apiKey;
@@ -178,6 +180,7 @@
       console.error('Error fetching coin data.');
     })
   };
-//});
-$(document).ready(plotCharts);
-$('#submitCoinBtn').click(plotCharts);
+  plotCharts;
+  $('#submitCoinBtn').click(plotCharts);
+  //setInterval(plotCharts, 120000)
+});

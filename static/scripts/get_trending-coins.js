@@ -3,7 +3,6 @@ $(document).ready(function() {
   function getandDisplaytrendingData() {
     const url = 'https://api.coingecko.com/api/v3/search/trending/' + '?x_cg_demo_api_key=' + apiKey;
     $.get(url, function (data) {
-      console.log(data)
       $('#trendingCoinTable').empty(); // Clear previous data
       data.coins.map(i => {
         let logo = i.item.thumb;
