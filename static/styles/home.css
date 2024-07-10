@@ -87,7 +87,7 @@ h2 {
 }
 .feature_buttons:hover {
   cursor: pointer;
-  border: 4px solid goldenrod;
+  background: #4cae4c;;
 }
 img {
   max-width: 30vw;
@@ -106,6 +106,50 @@ img {
   text-align: justify;
   line-height: 2em;
   font-size: x-large;
+}
+
+/* Contact Section*/
+.contact-form {
+  padding: 5vh 15vw 10vh 15vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  color: #243B55;
+  background: #ADA996;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.contact-form h2 {
+  margin-bottom: 15px;
+}
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+.contact-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #243B55;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: medium;
+}
+.contact-form .form-group textarea {
+  height: 100px;
+}
+.contact-form button {
+  background: #243B55;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.contact-form button:hover {
+  background: #4cae4c;
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1200px) {

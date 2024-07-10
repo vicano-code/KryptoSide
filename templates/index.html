@@ -27,7 +27,7 @@
           <button type="submit">Coin Stats</button>
         </form>
       </nav>
-      <button id="conact">Contact</button>
+      <a href="#contact_form"><button id="contact">Contact</button></a>
     </header>
     <section id="intro">
       <img src="../static/images/intro_pic.png" alt="">
@@ -71,7 +71,28 @@
       <p>Welcome to KryptoSide, your one-stop destination for comprehensive cryptocurrency data and statistics. In an ever-evolving digital economy, staying updated with the latest trends, prices, and insights into the cryptocurrency market is essential. KryptoSide provides a user-friendly platform where you can access real-time data, detailed analytics, and historical trends for a wide range of cryptocurrencies.</p>
       <p>KryptoSide is my final foundation-level portfolio project at the ALX Africa Software Engineering Program. It was inspired by my desire to try a few of what I have learnt during the program. I have always wanted to know how to use API for fetching and plotting data. I also wanted to be able to fetch data from a database and display on a web template. These I have achieved using KryptoSide. Althought the project is still in its infant stages. I hope to upgrade it further with features and make it a web service that people can truly use.      
     </section>
-    
+    <section class="contact-form" id="contact_form">
+      <h2>Contact Us</h2>
+      <form action="/submit_contact" method="post">
+          <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+          </div>
+          <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit">Submit</button>
+      </form>
+    </section>
     <footer>
       <span>A place for dynamic crypto data</span>
       <span>2024</span>
