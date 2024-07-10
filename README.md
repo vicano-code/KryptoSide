@@ -1,7 +1,7 @@
 # KryptoSide - A Portfolio Project done at the ALX SE Foundations Program
 
 ## Introduction
-KryptoSide is a free and user-friendly web service that provides users with information and statistics about the cryptocurrency market and coins. It will have a simple interactive user interface consisting of several sections. The application will use API to connect and retrieve crypto data from reliable sources. It will feature real-time price updates, summary information for requested coins, charts/graphs, news and useful links.
+KryptoSide is a free and user-friendly web service that provides users with information and statistics about the cryptocurrency market and coins. It has a simple interactive user interface consisting of several features. The application uses a REST API to connect and retrieve crypto data from reliable sources. It features real-time crypto price updates, summary information for requested coins, charts/graphs, news and useful links.
 ### Objectives of the Project
 - Design a simple, responsive and dynamic user interface.
 - Ensure seamless API integration 
@@ -64,6 +64,7 @@ python3 -m app.py
 ```sh
 http://localhost:5001/kryptoside
 ```
+![Demo](static/images/demo.gif)
 
 ## Environment
 - OS - Ubuntu-20.04 LTS
