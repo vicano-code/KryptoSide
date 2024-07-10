@@ -12,9 +12,17 @@ apiKey = getenv('COINGECKO_API_KEY')
 
 app = Flask(__name__)
 
+# Get coin id to populate select tag in market.html template
 coins = []
-#for item in get_market_data.data:
-#    coins.append(item.get('name'))
+url = f'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&price_change_percentage=1h,7d,30d,1y&per_page=250&x_cg_demo_api_key={apiKey}'
+headers = {
+    'accept': 'application/json'
+}
+response = requests.get(url, headers=headers)
+data = response.json()
+for item in data:
+    coins.append(item.get('id'))
+
 
 def format_currency_int(value):
     """Formats an integer value as currency"""
@@ -50,7 +58,6 @@ def update_market_data():
         response = requests.get(url, headers=headers)
         data = response.json()
         for item in data:
-            coins.append(item.get('name')) # coins initialized at top page use in coins() function
             symbol = item.get('symbol').upper()
             market_data = storage.all(MarketData).filter_by(symbol=symbol).first()
   
