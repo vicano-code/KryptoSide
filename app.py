@@ -154,7 +154,7 @@ def redirect_to_coin():
     
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=update_market_data, trigger="interval", seconds=60)
+scheduler.add_job(func=update_market_data, trigger="interval", seconds=120)
 scheduler.start()
 
 atexit.register(lambda: scheduler.shutdown())

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../static/styles/header.css">
+    <link rel="stylesheet" href="../static/styles/footer.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <title>KryptoSide</title>
+    <script src="../static/scripts/get_coin_data.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <img src="../static/images/KryptoSide_Logo.png" alt="">
+      <nav>
+        <form action="{{ url_for('redirect_to_index') }}" method="get">
+          <button type="submit">Home</button>
+        </form>
+        <form action="{{ url_for('redirect_to_market') }}" method="get">
+          <button type="submit">Market Stats</button>
+        </form>
+        <form action="{{ url_for('redirect_to_coin') }}" method="get">
+          <button type="submit">Coin Stats</button>
+        </form>
+      </nav>
+      <a href="#contact_form"><button id="contact">Contact</button></a>
+    </header>

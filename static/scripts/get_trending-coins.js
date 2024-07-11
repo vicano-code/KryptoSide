@@ -18,27 +18,21 @@ $(document).ready(function() {
           maximumFractionDigits: 4,
         }).format(price);
         
-        // format percent_change_24h to percent
-        let formatChangePercent  = new Intl.NumberFormat('en-US', {
-          style: 'percent',
-          maximumFractionDigits: 2,
-        }).format(percent_change_24h/100);
+        // use condition to get the correct arrow image src 
+        let loc = percent_change_24h > 0 ? '../static/images/increase.png': '../static/images/decrease.png';
 
-        // use condition to get the right arrow image src
-        let loc = "";
-        if (percent_change_24h > 0) {
-          loc = '../static/images/increase.png';
-        } else {
-          loc = '../static/images/decrease.png';
-        }
+        // first remove any negative sign
+        percent_change_24h = percent_change_24h < 0 ? Math.abs(percent_change_24h): percent_change_24h
+
         let rowTag = $('<tr></tr>', { id: 'rowTag'});
         let nameTag = $(`<td><img src=${logo} class='trendCoinLogo'> ${name}<td>`);
-        let priceTag = $(`<td>${formatPriceCurrency} <img src=${loc} class='arrow'> ${formatChangePercent}<td>`);
+        let priceTag = $(`<td>${formatPriceCurrency} <img src=${loc} class='arrow'> ${percent_change_24h.toFixed(2)}%<td>`);
         let sparkLinetag = $(`<td><img src=${sparkLine}> ${name}<td>`);
-        rowTag.append(nameTag);
-        rowTag.append(priceTag);
-        rowTag.append(sparkLinetag);
+
+        rowTag.append(nameTag, priceTag, sparkLinetag);
         $('#trendingCoinTable').append(rowTag);
+
+        // format styles
         $('#trendingCoinTable td').css('border', 'none');
         $('.trendCoinLogo').css('width', '15px');
         $('.arrow').css('width', '10px');
@@ -50,5 +44,5 @@ $(document).ready(function() {
   // Fetch data initially
   getandDisplaytrendingData();
   // Update data every 12 mins
-  setInterval(getandDisplaytrendingData, 720000);
+  setInterval(getandDisplaytrendingData, 60000);
 })
