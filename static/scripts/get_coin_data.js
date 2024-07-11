@@ -7,10 +7,9 @@ $(document).ready(() => {
     // Get coin description
     const url_coin_desc = 'https://api.coingecko.com/api/v3/coins/' + coinId.toLowerCase() + '?x_cg_demo_api_key=' + apiKey;
     $.get(url_coin_desc, function (data1) {
-      let formatInt = 
-        new Intl.NumberFormat('en-US', {
+      let formatInt = new Intl.NumberFormat('en-US', {
           style: 'currency',
-          currency: 'USD'
+          currency: 'USD',
         })
     
       $('#coin_logo').attr('src', data1.image['thumb']);
@@ -27,37 +26,64 @@ $(document).ready(() => {
       $('#coinDescription').html(data1.description["en"]);
     });
     
+
+    // Function to convert Unix timestamp to ISO date string
+    function convertTimestampToISO(timestamp) {
+      return new Date(timestamp).toISOString();
+    }
+
     // Get and plot OHLC data
     const url_ohlc = 'https://api.coingecko.com/api/v3/coins/' + coinId.toLowerCase() + '/ohlc?days=365&vs_currency=usd&x_cg_demo_api_key=' + apiKey;
     $.get(url_ohlc, function (data2) {
-      let xDate = data2.map(val => {
-        let myDate = new Date(val[0])
-        let month = ('0' + (myDate.getMonth() + 1)).slice(-2);
-        let day = ('0' + myDate.getDate()).slice(-2);
-        return (day + ',' + month)
-      });
+      let xDate = data2.map(val => convertTimestampToISO(val[0]));
       let yOpen = data2.map(val => val[1]);
       let yHigh = data2.map(val => val[2]);
       let yLow = data2.map(val => val[3]);
       let yClose = data2.map(val => val[4]);
 
-      let fig = PlotlyFinance.createCandlestick({
+      let trace = {
+        x: xDate,
         open: yOpen,
         high: yHigh,
         low: yLow,
         close: yClose,
-        dates: xDate
-      }); 
-      fig.layout.plot_bgcolor = '#ADA996';
-      fig.layout.paper_bgcolor = '#243B55';
+        // cutomise colors
+        increasing: {line: {color: 'green'}},
+        decreasing: {line: {color: 'red'}},
 
-      // Plot the candlestick chart
-      Plotly.newPlot('candlestickChart', fig.data, fig.layout);
+        type: 'candlestick',
+        xaxis: 'x',
+        yaxis: 'y'
+      }; 
+
+      var data = [trace];
+      
+      var layout = {
+        dragmode: 'zoom',
+        showlegend: false,
+        title: coinId.charAt(0).toUpperCase() + coinId.slice(1) + ' Price History',
+        xaxis: {
+          title: 'Date',
+          rangeslider: {
+           visible: false
+         }
+        },
+        yaxis: {
+          title: 'Price(USD)'
+        },        
+        margin: {l: 60, r: 30, t: 70, b: 60},
+        plot_bgcolor: '#FFFFF0',
+        paper_bgcolor: '#FFFFF0',
+      };
+      
+      Plotly.newPlot('candlestickChart', data, layout);
+      
     })
+
     // Get coin historical data
     const url_history = 'https://api.coingecko.com/api/v3/coins/' + coinId.toLowerCase() + '/market_chart?vs_currency=usd&days=365&x_cg_demo_api_key=' + apiKey;
     $.get(url_history, function (data) {
-      let xDate = data['prices'].map(val => val[0]);
+      let xDate = data['prices'].map(val => convertTimestampToISO(val[0]));
       let yPrices = data['prices'].map(val => val[1]);
       let yMarketCap = data['market_caps'].map(val => val[1]);
       let yMarketVol = data['total_volumes'].map(val => val[1]);
@@ -96,77 +122,59 @@ $(document).ready(() => {
 
       let layout1 = {
         title: {
-          text: coinId + ' Price History',
-          font: {
-            color: 'white',
-          }
+          text: coinId.charAt(0).toUpperCase() + coinId.slice(1) + ' Price History',
         },
         xaxis: { 
           title: {
-            text: 'Date',
-            font: { color: 'white' }
+            text: 'Date'
           },
-          tickfont: { color: 'white'}
         },
         yaxis: { 
           title: {
             text: 'Price (USD)',
-            font: { color: 'white' }
           },
-          tickfont: { color: 'white'}
         },
-        plot_bgcolor: '#ADA996',
-        paper_bgcolor: '#243B55',
+        plot_bgcolor: '#FFFFF0',
+        paper_bgcolor: '#FFFFF0',
+        margin: {l: 60, r: 30, t: 70, b: 60}
       };
 
       let layout2 = {
         title: {
-          text: coinId + ' Market Cap History',
-          font: {
-            color: 'white',
-          }
+          text: coinId.charAt(0).toUpperCase() + coinId.slice(1) + ' Market Cap History',
         },
         xaxis: { 
           title: {
             text: 'Date',
-            font: { color: 'white' }
           },
-          tickfont: { color: 'white'}
         },
         yaxis: { 
           title: {
             text: 'Market Cap (USD)',
-            font: { color: 'white' }
           },
-          tickfont: { color: 'white'}
         },
-        plot_bgcolor: '#ADA996',
-        paper_bgcolor: '#243B55',
+        plot_bgcolor: '#FFFFF0',
+        paper_bgcolor: '#FFFFF0',
+        margin: {l: 60, r: 30, t: 70, b: 60}
       };
 
       let layout3 = {
         title: {
-          text: coinId + ' Total Volume',
-          font: {
-            color: 'white',
-          }
+          text: coinId.charAt(0).toUpperCase() + coinId.slice(1) + ' Total Volume',
         },
         xaxis: { 
           title: {
             text: 'Date',
-            font: { color: 'white' }
           },
-          tickfont: { color: 'white'}
         },
         yaxis: { 
           title: {
             text: '24hr Total Volume (USD)',
-            font: { color: 'white' }
           },
-          tickfont: { color: 'white'}
         },
-        plot_bgcolor: '#ADA996',
-        paper_bgcolor: '#243B55',
+        plot_bgcolor: '#FFFFF0',
+        paper_bgcolor: '#FFFFF0',
+        margin: {l: 60, r: 30, t: 70, b: 60}
       };
 
       // Plot the graph

@@ -27,7 +27,7 @@ $(document).ready(function () {
         });
       });
     }).fail(function() {
-      console.error('Error fetching data from the API.');
+      console.error('Error fetching data from database.');
     });
   }
   

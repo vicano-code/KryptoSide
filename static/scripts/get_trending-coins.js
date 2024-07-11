@@ -39,6 +39,8 @@ $(document).ready(function() {
         $('#trendingCoinTable').css('height', '40vh');
         $('#trendingCoinTable').css('overflow-y', 'auto');
       })
+    }).fail(function() {
+      console.error('Error fetching data from the API.');
     });
   }
   // Fetch data initially
