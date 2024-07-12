@@ -27,7 +27,7 @@ $(document).ready(function() {
         let rowTag = $('<tr></tr>', { id: 'rowTag'});
         let nameTag = $(`<td><img src=${logo} class='trendCoinLogo'> ${name}<td>`);
         let priceTag = $(`<td>${formatPriceCurrency} <img src=${loc} class='arrow'> ${percent_change_24h.toFixed(2)}%<td>`);
-        let sparkLinetag = $(`<td><img src=${sparkLine}> ${name}<td>`);
+        let sparkLinetag = $(`<td><img src=${sparkLine} id='sparkLine'> ${name}<td>`);
 
         rowTag.append(nameTag, priceTag, sparkLinetag);
         $('#trendingCoinTable').append(rowTag);

@@ -10,6 +10,7 @@
 #intro > img {
   width: 35vw;
   height: 70vh;
+  margin-top: 7rem;
 }
 #welcome {
   display: flex;
@@ -40,7 +41,6 @@ h4 {
   background: #ADA996;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 #market_info {
   grid-row: 1;
@@ -152,10 +152,74 @@ img {
   background: #4cae4c;
 }
 
-@media only screen and (min-width: 601px) and (max-width: 1200px) {
-  #features 
-  #about
-  {
+/* responsive design*/
+@media screen and (max-width: 767px) {
+  #intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0em;
+    height: 100vh;
+  }
+  #intro > img {
+    width: 60vw;
+    height: 40vh;
+  }
+  #welcome {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  /* feature section */
+  .feature {
+    gap: 0;
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: bolder;
+    margin-bottom: 0;
+  }
+  .feature_description {
+    font-size: 16px;
+    text-align: justify;
+  }
+  .feature_buttons {
+    width: 80vw;
+    height: 40px;
+    font-size: medium;
+  }
+  /* About Section */
+  #about {
+    align-items: center;
+    gap: 0;
+  }
+  #about > p {
+    line-height: 1.5em;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  #features {
+    padding: 5vh 5vw 10vh 5vw;
+  }
+  .feature_description {
+    font-size: 18px;
+  }
+  img {
+    max-width: 40vw;
+    max-height: auto;
+  }
+  #about {
+    padding: 5vh 5vw 10vh 5vw;
+  }
+  #about > p {
+    line-height: 1.5em;
+    font-size: 20px;
+  }
+  .contact-form {
     padding: 5vh 5vw 10vh 5vw;
   }
 }

@@ -30,6 +30,14 @@ header > nav {
   display: flex;
   justify-content: center;
 }
+#nav-icon {
+  display: none;
+  width: 30px;
+  height: 30px;
+}
+#nav-icon:hover{
+  cursor: pointer;
+}
 header > nav > form > button {
   border: none;
   background-color: white;
@@ -44,7 +52,8 @@ header > nav > form > button:hover {
   color: #4cae4c;
   font-weight: bolder;
 }
-header > a > button {
+header > nav > a > button {
+  margin-left: 8rem;
   margin-right: 15vw;
   font-size: medium;
   border: none;
@@ -58,15 +67,12 @@ header > a > button:hover {
   background: #4cae4c;
 }
 
-@media (max-width: 600px) {
-  
-}
-@media only screen and (min-width: 601px) and (max-width: 768px) {
-  body {
-    padding-left: 0;
-    padding-right: 0;
+/* responsive design*/
+@media screen and (max-width: 1600px) {
+  header > img {
+    margin-left: 5vw;
   }
-  header {
-    width: 100vw;
+  header > a > button {
+    margin-right: 5vw;
   }
 }

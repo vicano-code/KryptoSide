@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="../static/styles/header.css">
     <link rel="stylesheet" href="../static/styles/footer.css">
@@ -8,6 +9,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdn.rawgit.com/etpinard/plotlyjs-finance/master/plotlyjs-finance.js"></script>
+    <script src="../static/scripts/reorganize_layout_coin.js"></script>
+    <script src="../static/scripts/nav_responsive.js"></script>
     <script>
       let apiKey = "{{ api_key }}";
     </script>
@@ -27,15 +30,16 @@
         <form action="{{ url_for('redirect_to_coin') }}" method="get">
           <button type="submit">Coin Stats</button>
         </form>
+        <a href="#contact_form"><button id="contact">Contact</button></a>
       </nav>
-      <a href="#contact_form"><button id="contact">Contact</button></a>
+      <img src="../static/images/nav_open.png" alt="" class="nav-open" id="nav-icon">
     </header>
     <section id="coin_info">
       <form>
         <label for="crypto">Select Cryptocurrency: </label>
         <select name="crypto" id="crypto" required>
           {% for coin in crypto_coins %}
-              <option value="{{ coin }}" {% if coin == 'Bitcoin' %}selected{% endif %}>{{ coin }}</option>
+            <option value="{{ coin }}" {% if coin == 'Bitcoin' %}selected{% endif %}>{{ coin }}</option>
           {% endfor %}
         </select>
         <button id="submitCoinBtn">Submit</button>
@@ -73,10 +77,6 @@
             <tr>
               <td>Website</td>
               <td id="website"></td>
-            </tr>
-            <tr>
-              <td>Community</td>
-              <td id="community"></td>
             </tr>
           </tbody>
         </table>

@@ -2,7 +2,7 @@
 function reorganizeHomeLayout() {
   $(document).ready(() => {
     const width = window.innerWidth;
-    if (width <= 820) {
+    if (width <= 768) {
       $('#market_info').css('flex-direction', 'column');
       $('#market_info').css('gap', '20px');
       $('#market_info').append($('#market_info div h2'));
@@ -27,8 +27,8 @@ function reorganizeHomeLayout() {
       // resize feature images
       $('.feature img').css('max-width', '100%');
       $('.feature img').css('max-height', '35em');
-      $('.feature img').css('margin-top', '40px');
-      $('.feature img').css('margin-bottom', '40px');
+      $('.feature img').css('margin-top', '20px');
+      $('.feature img').css('margin-bottom', '10px');
       // format about section
       $('#about').css('padding-left','20px');
       $('#about').css('padding-right','20px');

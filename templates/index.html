@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="../static/styles/header.css">
     <link rel="stylesheet" href="../static/styles/footer.css">
     <link rel="stylesheet" href="../static/styles/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="../static/scripts/reorganize_layout_home.js"></script>
+    <script src="../static/scripts/nav_responsive.js"></script>
     <script>
       let apiKey = "{{ api_key }}";
     </script>
@@ -26,8 +29,9 @@
         <form action="{{ url_for('redirect_to_coin') }}" method="get">
           <button type="submit">Coin Stats</button>
         </form>
+        <a href="#contact_form"><button id="contact">Contact</button></a>
       </nav>
-      <a href="#contact_form"><button id="contact">Contact</button></a>
+      <img src="../static/images/nav_open.png" alt="" class="nav-open" id="nav-icon">
     </header>
     <section id="intro">
       <img src="../static/images/intro_pic.png" alt="">

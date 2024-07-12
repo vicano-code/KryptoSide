@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="../static/styles/header.css">
     <link rel="stylesheet" href="../static/styles/footer.css">
@@ -10,6 +11,7 @@
     <script src="../static/scripts/global_mkt_data.js"></script>
     <script src="../static/scripts/get_trending-coins.js"></script>
     <script src="../static/scripts/fetch_market_data.js"></script>
+    <script src="../static/scripts/nav_responsive.js"></script>
     <script>
       let apiKey = "{{ api_key }}";
     </script>
@@ -28,8 +30,9 @@
         <form action="{{ url_for('redirect_to_coin') }}" method="get">
           <button type="submit">Coin Stats</button>
         </form>
+        <a href="#contact_form"><button id="contact">Contact</button></a>
       </nav>
-      <a href="#contact_form"><button id="contact">Contact</button></a>
+      <img src="../static/images/nav_open.png" alt="" class="nav-open" id="nav-icon">
     </header>
     <section id="marketSummary">
       <div class="market_summary" id="totalMarketCap">
