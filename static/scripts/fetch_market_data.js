@@ -33,5 +33,5 @@ $(document).ready(function () {
   
   // Fetch data immediately and then at regular intervals
   fetchData();
-  setInterval(fetchData, 130000); // 60000 ms = 60 seconds
+  setInterval(fetchData, 120000); // 60000 ms = 60 seconds
 })

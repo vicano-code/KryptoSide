@@ -81,12 +81,12 @@ h2 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: large;
   border: 1px solid #dfe6e9;
-  border-radius:5%;
+  border-radius: 4px;
   background-color: #243B55;
   color: white;
+  cursor: pointer;
 }
 .feature_buttons:hover {
-  cursor: pointer;
   background: #4cae4c;;
 }
 img {
@@ -112,7 +112,6 @@ img {
 .contact-form {
   padding: 5vh 15vw 10vh 15vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   color: #243B55;
   background: #ADA996;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
@@ -138,14 +137,16 @@ img {
   font-size: medium;
 }
 .contact-form .form-group textarea {
-  height: 100px;
+  height: 150px;
 }
 .contact-form button {
   background: #243B55;
   color: #fff;
   padding: 10px 15px;
+  width: 6em;
   border: none;
   border-radius: 4px;
+  font-size: medium;
   cursor: pointer;
 }
 .contact-form button:hover {
@@ -153,6 +154,26 @@ img {
 }
 
 /* responsive design*/
+@media screen and (max-width: 1600px) {
+  #features {
+    padding: 5vh 5vw 10vh 5vw;
+  }
+  .feature_description {
+    font-size: 18px;
+  }
+  img {
+    max-width: 40vw;
+    max-height: auto;
+  }
+  #about {
+    padding: 5vh 5vw 10vh 5vw;
+  }
+  #about > p {
+    line-height: 1.5em;
+    font-size: 20px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   #intro {
     display: flex;
@@ -198,28 +219,19 @@ img {
   }
   #about > p {
     line-height: 1.5em;
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 1600px) {
-  #features {
-    padding: 5vh 5vw 10vh 5vw;
-  }
-  .feature_description {
-    font-size: 18px;
-  }
-  img {
-    max-width: 40vw;
-    max-height: auto;
-  }
-  #about {
-    padding: 5vh 5vw 10vh 5vw;
-  }
-  #about > p {
-    line-height: 1.5em;
-    font-size: 20px;
+    font-size: medium;
   }
   .contact-form {
     padding: 5vh 5vw 10vh 5vw;
+  }
+  .contact-form .form-group input,
+  .contact-form .form-group textarea {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid #243B55;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: medium;
   }
 }

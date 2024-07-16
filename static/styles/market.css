@@ -40,10 +40,10 @@
   padding: 0 15vw 0 15vw;
   height: auto;
   align-items: center;
+  overflow-x: auto;
 } 
 #cryptoTable > table {
   width: 100%;
-  overflow: auto;
 }
 #coin_img {
   width: 20px;

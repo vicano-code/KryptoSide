@@ -1,13 +1,13 @@
 function reorganizeCoinLayout() {
     const width = window.innerWidth;
     if (width <= 768) {
-      let $CoinDescTag = $('#coin_desc');
+      let $coinDescTag = $('#coin_desc');
       let $coinChartTag = $('#coinChart');
-      if (!$CoinDescTag.parent().is('#coin_stats') || !$coinChartTag.parent().is('#coin_stats')) {
-        $CoinDescTag.remove();
+      if (!$coinDescTag.parent().is('#coin_stats') || !$coinChartTag.parent().is('#coin_stats')) {
+        $coinDescTag.remove();
         $coinChartTag.remove();
         $('#coin_stats').append($coinChartTag);
-        $('#coin_stats').append($CoinDescTag);
+        $('#coin_stats').append($coinDescTag);
       }
     }
 }

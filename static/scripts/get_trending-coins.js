@@ -46,5 +46,5 @@ $(document).ready(function() {
   // Fetch data initially
   getandDisplaytrendingData();
   // Update data every 12 mins
-  setInterval(getandDisplaytrendingData, 60000);
+  setInterval(getandDisplaytrendingData, 720000);
 })

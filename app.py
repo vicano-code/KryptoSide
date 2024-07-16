@@ -8,6 +8,7 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for, s
 from apscheduler.schedulers.background import BackgroundScheduler
 import atexit
 
+# Get coingecko API key value from environment variable
 apiKey = getenv('COINGECKO_API_KEY')
 
 app = Flask(__name__)
@@ -137,20 +138,28 @@ def market():
 
 @app.route('/kryptoside/coin', strict_slashes=False)
 def coin():
-    """Fetch market data from the database"""
+    """Renders the coin html document"""
     return render_template('coin.html', crypto_coins=coins, api_key=apiKey)
 
 @app.route('/redirect_to_index', strict_slashes=False)
 def redirect_to_index():
+    """Redirect to index html route"""
     return redirect(url_for('index'))
 
 @app.route('/redirect_to_market', strict_slashes=False)
 def redirect_to_market():
+    """Redirect to market html route"""
     return redirect(url_for('market'))
 
 @app.route('/redirect_to_coin', strict_slashes=False)
 def redirect_to_coin():
+    """Redirect to coin html route"""
     return redirect(url_for('coin'))
+
+@app.route('/redirect_to_contact', strict_slashes=False)
+def redirect_to_contact():
+    """Redirect to contact html route"""
+    return redirect(url_for('index/#contact_form'))
     
 
 scheduler = BackgroundScheduler()

@@ -19,7 +19,7 @@
   </head>
   <body>
     <header>
-      <img src="../static/images/KryptoSide_Logo.png" alt="">
+      <img src="../static/images/KryptoSide_Logo.png" alt="KryptoSide Logo">
       <nav>
         <form action="{{ url_for('redirect_to_index') }}" method="get">
           <button type="submit">Home</button>
@@ -30,7 +30,7 @@
         <form action="{{ url_for('redirect_to_coin') }}" method="get">
           <button type="submit">Coin Stats</button>
         </form>
-        <a href="#contact_form"><button id="contact">Contact</button></a>
+        <a href="/kryptoside#contact_form"><button type="submit" id="contact">Contact</button></a>
       </nav>
       <img src="../static/images/nav_open.png" alt="" class="nav-open" id="nav-icon">
     </header>
@@ -52,7 +52,6 @@
           <span id="coin_rank"></span>
         </div>
         <span id="coin_price"></span>
-        
         <table>
             <tr>
               <td>Market Cap</td>
@@ -91,7 +90,6 @@
         <div class="historyChart" id="marketCapHistoryChart"></div>
         <div class="historyChart" id="marketVolHistoryChart"></div>
       </div>
-      
     </section>
     <footer>
       <span>A place for dynamic crypto data</span>

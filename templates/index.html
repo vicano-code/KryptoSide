@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="../static/styles/header.css">
     <link rel="stylesheet" href="../static/styles/footer.css">
     <link rel="stylesheet" href="../static/styles/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="../static/scripts/reorganize_layout_home.js"></script>
@@ -18,7 +17,7 @@
   </head>
   <body>
     <header>
-      <img src="../static/images/KryptoSide_Logo.png" alt="">
+      <img src="../static/images/KryptoSide_Logo.png" alt="KryptoSide Logo">
       <nav>
         <form action="{{ url_for('redirect_to_index') }}" method="get">
           <button type="submit">Home</button>
@@ -29,7 +28,7 @@
         <form action="{{ url_for('redirect_to_coin') }}" method="get">
           <button type="submit">Coin Stats</button>
         </form>
-        <a href="#contact_form"><button id="contact">Contact</button></a>
+        <a href="#contact_form"><button type="submit" id="contact">Contact</button></a>
       </nav>
       <img src="../static/images/nav_open.png" alt="" class="nav-open" id="nav-icon">
     </header>
@@ -78,23 +77,23 @@
     <section class="contact-form" id="contact_form">
       <h2>Contact Us</h2>
       <form action="/submit_contact" method="post">
-          <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required>
-          </div>
-          <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required></textarea>
-          </div>
-          <button type="submit">Submit</button>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
       </form>
     </section>
     <footer>

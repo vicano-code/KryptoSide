@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="../static/styles/market.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../static/scripts/nav_responsive.js"></script>
     <script src="../static/scripts/global_mkt_data.js"></script>
     <script src="../static/scripts/get_trending-coins.js"></script>
     <script src="../static/scripts/fetch_market_data.js"></script>
-    <script src="../static/scripts/nav_responsive.js"></script>
+    
     <script>
       let apiKey = "{{ api_key }}";
     </script>
@@ -19,7 +20,7 @@
   </head>
   <body>
     <header>
-      <img src="../static/images/KryptoSide_Logo.png" alt="">
+      <img src="../static/images/KryptoSide_Logo.png" alt="KryptoSide Logo">
       <nav>
         <form action="{{ url_for('redirect_to_index') }}" method="get">
           <button type="submit">Home</button>
@@ -30,7 +31,7 @@
         <form action="{{ url_for('redirect_to_coin') }}" method="get">
           <button type="submit">Coin Stats</button>
         </form>
-        <a href="#contact_form"><button id="contact">Contact</button></a>
+        <a href="/kryptoside#contact_form"><button type="submit" id="contact">Contact</button></a>
       </nav>
       <img src="../static/images/nav_open.png" alt="" class="nav-open" id="nav-icon">
     </header>
