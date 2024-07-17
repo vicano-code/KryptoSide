@@ -30,7 +30,9 @@
         <form action="{{ url_for('redirect_to_coin') }}" method="get">
           <button type="submit">Coin Stats</button>
         </form>
-        <a href="/kryptoside#contact_form"><button type="submit" id="contact">Contact</button></a>
+        <form action="{{ url_for('redirect_to_contact') }}" method="get">
+          <button type="submit" id="contact">Contact</button>
+        </form>
       </nav>
       <img src="../static/images/nav_open.png" alt="" class="nav-open" id="nav-icon">
     </header>

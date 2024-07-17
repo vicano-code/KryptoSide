@@ -52,7 +52,7 @@ header > nav > form > button:hover {
   color: #4cae4c;
   font-weight: bolder;
 }
-header > nav > a > button {
+#contact {
   margin-left: 8rem;
   margin-right: 15vw;
   font-size: large;
@@ -64,7 +64,7 @@ header > nav > a > button {
   color: white;
   cursor: pointer;
 }
-header > nav > a > button:hover {
+#contact:hover {
   background: #4cae4c;
 }
 
@@ -73,7 +73,7 @@ header > nav > a > button:hover {
   header > img {
     margin-left: 5vw;
   }
-  header > nav > a > button {
+  #contact {
     margin-right: 5vw;
   }
 }

@@ -5,14 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="../static/styles/header.css">
     <link rel="stylesheet" href="../static/styles/footer.css">
-    <link rel="stylesheet" href="../static/styles/market.css">
+    <link rel="stylesheet" href="../static/styles/home.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../static/scripts/reorganize_layout_home.js"></script>
     <script src="../static/scripts/nav_responsive.js"></script>
-    <script src="../static/scripts/global_mkt_data.js"></script>
-    <script src="../static/scripts/get_trending-coins.js"></script>
-    <script src="../static/scripts/fetch_market_data.js"></script>
-    
     <script>
       let apiKey = "{{ api_key }}";
     </script>
@@ -31,49 +28,31 @@
         <form action="{{ url_for('redirect_to_coin') }}" method="get">
           <button type="submit">Coin Stats</button>
         </form>
-        <form action="{{ url_for('redirect_to_contact') }}" method="get">
-          <button type="submit" id="contact">Contact</button>
-        </form>
+        <a href="#contact_form"><button type="submit" id="contact">Contact</button></a>
       </nav>
       <img src="../static/images/nav_open.png" alt="" class="nav-open" id="nav-icon">
     </header>
-    <section id="marketSummary">
-      <div class="market_summary" id="totalMarketCap">
-        <p>Global Market Cap </p>
-        <h3></h3>
-      </div>
-      <div class="market_summary" id="totalMarketVolume">
-        <p>Global 24h Trading Volume </p>
-        <h3></h3>
-      </div>
-      <div class="market_summary" id="trending">
-        <p>Trending Coins </p>
-        <div id="trending_coin">
-          <table id="trendingCoinTable"></table>
+    <section class="contact-form" id="contact_form">
+      <h2>Contact Us</h2>
+      <form action="/submit_contact" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
         </div>
-      </div>
-    </section>
-    <section id="cryptoTable">
-      <table>
-        <caption id="table_caption">Cryptocurrency Prices by Market Capitalization</caption>
-        <thead>
-          <tr id="heading">
-            <th>Rank</th>
-            <th>Coin</th>
-            <th>Price</th>
-            <th>1h</th>
-            <th>24h</th>
-            <th>7d</th>
-            <th>30d</th>
-            <th>1y</th>
-            <th>24h Volume</th>
-            <th>Market Cap</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        </tbody>
-      </table>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </section>
     <footer>
       <span>A place for dynamic crypto data</span>

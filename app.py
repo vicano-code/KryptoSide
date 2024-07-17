@@ -29,6 +29,7 @@ def format_currency_int(value):
     """Formats an integer value as currency"""
     return f"${value:,.0f}"
 
+
 def format_currency_float(value):
     """Formats a float value as currency"""
     if value < 1:
@@ -38,14 +39,17 @@ def format_currency_float(value):
         # Format to 7 significant figures
         return f"${value:,.2f}"
 
+
 def format_percent(value):
     """formats the percentage value"""
     return f"{value:.2f}"
+
 
 @app.teardown_appcontext
 def close_db(error):
     """ Remove the current SQLAlchemy Session """
     storage.close()
+
 
 @app.route('/update_market_data', methods=['POST'])
 def update_market_data():
@@ -102,10 +106,12 @@ def update_market_data():
         storage.save()
         storage.close()
 
+
 @app.route('/kryptoside', strict_slashes=False)
 def index():
     """Renders the index html document"""
     return render_template('index.html')
+
 
 @app.route('/api/get_data', strict_slashes=False)
 def get_data():
@@ -131,35 +137,47 @@ def get_data():
         });
     return jsonify(formatted_data)
 
+
 @app.route('/kryptoside/market', strict_slashes=False)
 def market():
     """Renders the market html document"""
     return render_template('market.html')
+
 
 @app.route('/kryptoside/coin', strict_slashes=False)
 def coin():
     """Renders the coin html document"""
     return render_template('coin.html', crypto_coins=coins, api_key=apiKey)
 
+
+@app.route('/kryptoside/contact', strict_slashes=False)
+def contact():
+    """Renders the contact html document"""
+    return render_template('contact.html')
+
+
 @app.route('/redirect_to_index', strict_slashes=False)
 def redirect_to_index():
     """Redirect to index html route"""
     return redirect(url_for('index'))
+
 
 @app.route('/redirect_to_market', strict_slashes=False)
 def redirect_to_market():
     """Redirect to market html route"""
     return redirect(url_for('market'))
 
+
 @app.route('/redirect_to_coin', strict_slashes=False)
 def redirect_to_coin():
     """Redirect to coin html route"""
     return redirect(url_for('coin'))
 
+
 @app.route('/redirect_to_contact', strict_slashes=False)
 def redirect_to_contact():
     """Redirect to contact html route"""
-    return redirect(url_for('index/#contact_form'))
+    return redirect(url_for('contact'))
     
 
 scheduler = BackgroundScheduler()
